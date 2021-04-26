@@ -77,10 +77,11 @@ return [
     | The application locale determines the default locale that will be used
     | by the translation service provider. You are free to set this value
     | to any of the locales which will be supported by the application.
-    |
+    | 语言设置
     */
 
-    'locale' => 'en',
+//    'locale' => 'en',
+    'locale' => 'zh_CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -158,7 +159,11 @@ return [
         Illuminate\Redis\RedisServiceProvider::class,
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
-        Illuminate\Translation\TranslationServiceProvider::class,
+        //Illuminate\Translation\TranslationServiceProvider::class,
+        // 语言包中间件替换
+        Overtrue\LaravelLang\TranslationServiceProvider::class,
+
+
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 

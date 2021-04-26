@@ -8,6 +8,7 @@ class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
+     * 当我们运行迁移时，up 方法会被调用
      *
      * @return void
      */
@@ -25,6 +26,7 @@ class CreateUsersTable extends Migration
     }
 
     /**
+     * 当我们回滚迁移时，down 方法会被调用。
      * Reverse the migrations.
      *
      * @return void
