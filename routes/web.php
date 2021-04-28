@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'StaticPagesController@home');
+Route::get('/', 'StaticPagesController@home')->name('home');
 /**
  * 如果要使用<li><a href="{{ route('help') }}">帮助</a></li> 这种方式来调用help路由,则需要在路由后面链式调用 name 方法来为路由指定名称
  * name 命名路由’
@@ -34,3 +34,9 @@ Route::get('signup', 'UserController@create')->name('signup');
  *  这段代码等同于下面一段  遵从RESTful 原则
  */
 Route::resource('users', 'UserController');
+
+
+
+Route::get('login', 'SessionsController@create')->name('login');
+Route::post('login', 'SessionsController@store')->name('login');
+Route::delete('logout', 'SessionsController@destroy')->name('logout');
