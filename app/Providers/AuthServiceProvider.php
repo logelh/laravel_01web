@@ -18,13 +18,14 @@ class AuthServiceProvider extends ServiceProvider
 
     /**
      * Register any authentication / authorization services.
-     *
+     * 自动授权注册
      * @return void
      */
     public function boot()
     {
         $this->registerPolicies();
-
-        //
+        Gate::guessPolicyNamesUsing(function ($modelClass) {
+           return 'App\Policies\\' . class_basename($modelClass) . 'Policy';
+        });
     }
 }
