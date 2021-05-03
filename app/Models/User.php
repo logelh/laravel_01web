@@ -65,6 +65,21 @@ class User extends Authenticatable
         static::creating(function ($user) {
             $user->activation_token = Str::random(10);
         });
+    }
 
+    /**
+     * 由于一个用户拥有多条微博，因此在用户模型中我们使用了微博动态的复数形式statuses 来作为定义的函数名。
+     * ，指明一个用户拥有多条微博。
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function statuses()
+    {
+        return $this->hasMany(Status::class);
+    }
+
+
+    public function feed()
+    {
+        return $this->statuses()->orderBy('created_at', 'desc');
     }
 }
